@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 //import styles
-import './TodoStyle.css';
+import './NoteStyle.css';
 
 
 
@@ -60,7 +60,7 @@ constructor (props) {
   
 
   .catch(error => {
-    console.error('Error deleting todo:', error);
+    console.error('Error deleting Note:', error);
 });
 } 
 
@@ -131,7 +131,7 @@ handleSearchArea=(e)=>{
 
                   </div>
 
-                  {/* render to create todo page  */}
+                  {/* render to create Note page  */}
                   <Link to="/AddNote" > 
                   <button className="btn btn-success" id="createbtn" style={{width:'70px', height:'30px'}}>
                   <i className="fa-solid fa-plus"></i> Create
