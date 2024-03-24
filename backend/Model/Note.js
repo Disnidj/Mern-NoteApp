@@ -21,6 +21,11 @@ const NoteSchema = new mongoose.Schema({
         
     },
 
+    completed: {
+        type: Boolean,
+        default: false 
+    }
+
 
    
 });

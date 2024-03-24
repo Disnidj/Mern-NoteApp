@@ -95,5 +95,19 @@ router.delete("/DeleteNote/:id", async (req, res) => {
     }
 });
 
+///Stars update
+
+router.put("/UpdateNoteStar/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { starred } = req.body; // Change from completed to starred
+        const updatedNote = await Note.findByIdAndUpdate(id, { starred }, { new: true }); // Change from completed to starred
+        res.status(200).json({ success: true, note: updatedNote });
+    } catch (error) {
+        console.error('Error updating note star:', error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+  
 
 module.exports=router;

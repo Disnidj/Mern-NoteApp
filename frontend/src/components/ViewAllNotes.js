@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 import './NoteStyle.css';
 
 
-
-
 export default class ViewAllNotes extends Component {
 
 //initialize constructor to pass the props
@@ -19,6 +17,7 @@ constructor (props) {
     this.state={
       //initializing an array 
       GetAllNotes:[],
+      filterOption: 'all' // default filter option
    
     };
   }
@@ -95,11 +94,35 @@ handleSearchArea=(e)=>{
 
 }
 
+handleStarredChange = (id, checked) => {
+  axios.put(`http://localhost:8000/UpdateNoteStar/${id}`, { starred: checked })
+      .then(() => {
+          // Update local state 
+          this.setState(prevState => ({
+              GetAllNotes: prevState.GetAllNotes.map(GetAllNotes => {
+                  if (GetAllNotes._id === id) {
+                      return { ...GetAllNotes, starred: checked };
+                  }
+                  return GetAllNotes;
+              })
+          }));
+      })
+      .catch(error => {
+          console.error('Error updating star:', error);
+      });
+};
 
 
 
   render() {
 
+    const { GetAllNotes, filterOption } = this.state;
+    let filteredNotes = GetAllNotes;
+    if (filterOption === 'checked') {
+        filteredNotes = GetAllNotes.filter(GetAllNotes => GetAllNotes.starred);
+    } else if (filterOption === 'unchecked') {
+        filteredNotes = GetAllNotes.filter(GetAllNotes => !GetAllNotes.starred);
+    }
 
     return (
 
@@ -129,6 +152,15 @@ handleSearchArea=(e)=>{
                       </input>
                       </div>
 
+                  {/* filter option  */}
+                  <div className="col-lg-3 my-2 mb-2" style={{width:'350px'}} >
+                    <select className="form-select" onChange={this.handleFilterChange} defaultValue="all">
+                        <option value="all">All</option>
+                        <option value="checked">Starred</option>
+                        <option value="unchecked">Common</option>
+                    </select>
+              </div>
+
                   </div>
 
                   {/* render to create Note page  */}
@@ -153,18 +185,34 @@ handleSearchArea=(e)=>{
                     <tr  >
                         <th style={{width:'40px', textAlign:'center'}} >No</th>
                         <th style={{width:'20px'}} > </th>
-                        <th style={{width:'250px', textAlign:'center'}}>Note Title</th>
+                        <th style={{width:'40px',textAlign:'center'}} >Starred</th> 
+                        <th style={{width:'20px'}} > </th>
+                        <th style={{width:'250px', textAlign:'center'}}>Todo</th>
                         <th style={{width:'20px'}} > </th>  
-                        <th style={{width:'150px', textAlign:'center'}}>Date</th>   
-                            
+                        <th style={{width:'150px', textAlign:'center'}}>Deadline</th>   
+                          
                     </tr>
                   </thead>
                   
                   <tbody>
 
-                    {this.state.GetAllNotes.map((GetAllNotes,index)=>(
+                    {filteredNotes.map((GetAllNotes,index)=>(
                     <tr key ={index} >
                         <th scope='row' style={{textAlign:'center'}}> {index+1}</th>
+                        
+                        <th style={{width:'20px'}} > </th>
+
+                        <td style={{width:'20px'}}>
+                              <input
+                                  type="checkbox"
+                                  checked={GetAllNotes.starred}
+                                  onChange={(e) => this.handleStarredChange(GetAllNotes._id, e.target.checked)}
+                              />
+                              
+                        </td>
+
+                        <th style={{width:'20px'}} > </th>
+                        
                         <td >
                             {GetAllNotes.Topic} </td> 
                         <th style={{width:'20px'}} > </th>
@@ -175,20 +223,20 @@ handleSearchArea=(e)=>{
                         <td>
                           {/* render to edit page  */}
                           <Link to={`/ViewNote/${GetAllNotes._id}`} class="btn btn-primary">
-                          <i class="fa-solid fa-eye"></i>
+                           <i class="fa-solid fa-eye"></i>
                           </Link>
                             &nbsp;
 
                           {/* render to edit page  */}
                           <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-warning">
-                          <i class="fa-solid fa-pen-to-square"></i>
+                           <i class="fa-solid fa-pen-to-square"></i>
                           </Link>
                             &nbsp;
 
-                            {/* delete a Note  */}
-                            <a className ="btn btn-danger" href="" onClick={()=>this.onDelete(GetAllNotes._id)}>
-                            <i className ="far fa-trash-alt"> </i>
-                            </a>  &nbsp;
+                          {/* delete a Note  */}
+                          <button className="btn btn-danger" onClick={() => this.onDelete(GetAllNotes._id)}>
+                            <i className="far fa-trash-alt"></i>
+                          </button>
                         </td>
                     </tr>
 
