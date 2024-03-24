@@ -81,18 +81,23 @@ this.setState({GetAllNotes:result})
 
 }
 
-handleSearchArea=(e)=>{
-
+handleSearchArea = (e) => {
   const searchKey = e.currentTarget.value;
   
-  axios.get("http://localhost:8000/GetAllNotes").then(res=>{
-  if(res.data.success){
-  
-    this.filterData(res.data.existingData,searchKey)
+  // Check if searchKey is empty
+  if (searchKey.trim() === '') {
+      // If empty, fetch all records again
+      this.retrieveNoteDetalis();
+  } else {
+      // If not empty, filter data based on searchKey
+      axios.get("http://localhost:8000/GetAllNotes").then(res => {
+          if (res.data.success) {
+              this.filterData(res.data.existingData, searchKey);
+          }
+      });
   }
-});
-
 }
+
 
 handleStarredChange = (id, checked) => {
   axios.put(`http://localhost:8000/UpdateNoteStar/${id}`, { starred: checked })
@@ -204,6 +209,7 @@ handleStarredChange = (id, checked) => {
 
                         <td style={{width:'20px'}}>
                               <input
+                                  className='star'
                                   type="checkbox"
                                   checked={GetAllNotes.starred}
                                   onChange={(e) => this.handleStarredChange(GetAllNotes._id, e.target.checked)}

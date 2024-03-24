@@ -45,6 +45,7 @@ body {
     }
   }
 
+
 /* end for viewallnotes */
 
 
@@ -104,6 +105,25 @@ body {
 
 /* NoteStyle.css */
 
+.star {
+  visibility:hidden;
+  font-size:30px;
+  color: rgb(255, 196, 0);
+  cursor:pointer;
+  margin-bottom: 35px;
+  margin-left: -10px
+  
+}
+.star:before {
+ content: "\2605";
+ position: absolute;
+ visibility:visible;
+
+}
+.star:checked:before {
+ content: "\2606";
+ position: absolute;
+}
 
 /* end  */
   
