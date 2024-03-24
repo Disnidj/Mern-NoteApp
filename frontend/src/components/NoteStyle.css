@@ -1,0 +1,107 @@
+body {
+    background-color: black;
+  }
+
+
+  /* for ViewAllNotes file */
+.Header1{
+    color: rgb(249, 249, 250);
+}
+
+.center-table{
+    margin: 0 auto;
+    color: aliceblue;
+  
+    
+}
+
+.center-table td{
+    text-align: center;
+    background-color: rgb(33, 2, 43);
+    
+    
+}
+
+.center-table, th, td {
+    border-radius: 10px;
+}
+
+.content1{
+    margin-top: 50px;
+    width: 750px;
+    max-width: 1000px;
+    height: 500px;
+    background-color: rgba(137, 43, 226, 0.37);
+    overflow-y: auto;
+    border-radius: 40px;
+    padding: 0 20px;
+       
+}
+
+@media only screen and (max-width: 768px) {
+    .content1 {
+      width: 100%; /* Make the content take full width on smaller screens */
+      height: auto; /* Allow the content to expand vertically */
+    }
+  }
+
+/* end for viewallnotes */
+
+
+
+/* for AddNote file */
+
+.content2{
+
+    margin-top: 50px;
+    width: 750px;
+    max-width: 1000px;
+    height: 500px;
+    background-color: rgba(43, 137, 226, 0.37);
+    overflow-y: auto;
+    border-radius: 40px;
+    padding: 0 20px;
+       
+}
+
+@media only screen and (max-width: 768px) {
+    .content2 {
+      width: 100%; /* Make the content take full width on smaller screens */
+      height: auto; 
+    }
+  }
+
+
+  .Add_form{
+
+    width: 350px;
+  
+  }
+  
+/* end for AddNote file  */
+
+
+/* style for Update Note file  */
+
+.content3{
+
+    margin-top: 50px;
+    width: 750px;
+    max-width: 1000px;
+    height: 500px;
+    background-color: rgba(226, 43, 186, 0.37);
+    overflow-y: auto;
+    border-radius: 40px;
+    padding: 0 20px;
+       
+}
+
+@media only screen and (max-width: 768px) {
+    .content3 {
+      width: 100%; /* Make the content take full width on smaller screens */
+      height: auto; 
+    }
+  }
+
+/* end  */
+  

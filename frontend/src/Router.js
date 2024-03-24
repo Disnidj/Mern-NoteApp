@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddNote from "./components/AddNote";
 import ViewAllNotes from "./components/ViewAllNotes";
 import UpdateNote from "./components/UpdateNote";
+import ViewNote from "./components/ViewNote"
 
 
-export default function TodoRouter() {
+export default function NoteRouter() {
   return (
     <div>
       <Router>
@@ -24,6 +25,11 @@ export default function TodoRouter() {
           <Route
             path="/UpdateNote/:id"
             element={<UpdateNote />}
+          />
+
+          <Route
+            path="/ViewNote/:id"
+            element={<ViewNote />}
           />
          
 

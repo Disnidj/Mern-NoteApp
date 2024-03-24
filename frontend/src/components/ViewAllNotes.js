@@ -133,7 +133,7 @@ handleSearchArea=(e)=>{
 
                   {/* render to create Note page  */}
                   <Link to="/AddNote" > 
-                  <button className="btn btn-success" id="createbtn" style={{width:'70px', height:'30px'}}>
+                  <button className="btn btn-success" id="createbtn" style={{width:'120px', height:'40px'}}>
                   <i className="fa-solid fa-plus"></i> Create
                   </button>
                   </Link>
@@ -174,8 +174,14 @@ handleSearchArea=(e)=>{
                          <th style={{width:'20px'}} > </th>
                         <td>
                           {/* render to edit page  */}
-                          <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-primary">
+                          <Link to={`/ViewNote/${GetAllNotes._id}`} class="btn btn-primary">
                           <i class="fa-solid fa-eye"></i>
+                          </Link>
+                            &nbsp;
+
+                          {/* render to edit page  */}
+                          <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-warning">
+                          <i class="fa-solid fa-pen-to-square"></i>
                           </Link>
                             &nbsp;
 

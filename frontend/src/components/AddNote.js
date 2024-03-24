@@ -50,7 +50,7 @@ const AddNote = () => {
       const handleSubmit = async (e)=>{
       e.preventDefault();
 
-      if(Date===''|| Topic===''){
+      if(Date===''|| Topic==='' || Description===''){
         alert("Fill The Required Fields!!")
 
       }else {
@@ -124,7 +124,7 @@ const AddNote = () => {
                               value={Description} 
                               placeholder="Type a Description Here"
                               className='form-control' 
-                              style={{ marginBottom: '20px' }} 
+                              style={{ marginBottom: '20px' , height:'160px'}} 
                               onChange={(e) => handle_Description_Change(e)} 
                                />
                         </div>
