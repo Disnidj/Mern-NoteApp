@@ -81,7 +81,7 @@ function UpdateNote() {
               />
             </div>
             <br />
-            <div className="form-group">
+            <div className="form-group" >
               <Editor
                 editorState={editorState}
                 toolbar={{
@@ -94,7 +94,7 @@ function UpdateNote() {
                 editorClassName="editorClassName"
                 onEditorStateChange={onEditorStateChange}
                 toolbarClassName="toolbarClassName"
-                editorStyle={{ minHeight: '200px', backgroundColor:'white' }}
+                editorStyle={{ minHeight: '200px', maxHeight:'160px', backgroundColor:'white', overflowY: 'auto' }}
                 
               />
             </div>
