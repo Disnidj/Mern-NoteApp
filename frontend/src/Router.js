@@ -1,8 +1,10 @@
 import React, { Profiler, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import ViewAllNotes from "./components/ViewAllNotes";
 
+import AddNote from "./components/AddNote";
+import ViewAllNotes from "./components/ViewAllNotes";
+import UpdateNote from "./components/UpdateNote";
 
 
 export default function TodoRouter() {
@@ -15,6 +17,14 @@ export default function TodoRouter() {
 
           <Route path="/" element={<ViewAllNotes />} />
           
+          <Route
+            path="/AddNote"
+            element={<AddNote />}
+          />
+          <Route
+            path="/UpdateNote/:id"
+            element={<UpdateNote />}
+          />
          
 
         </Routes>

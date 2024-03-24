@@ -174,8 +174,8 @@ handleSearchArea=(e)=>{
                          <th style={{width:'20px'}} > </th>
                         <td>
                           {/* render to edit page  */}
-                          <Link to={`/UpdateNote/${GetAllNotes._id}`} className="btn btn-warning">
-                              <i className="fas fa-edit"></i>
+                          <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-primary">
+                          <i class="fa-solid fa-eye"></i>
                           </Link>
                             &nbsp;
 
