@@ -123,9 +123,9 @@ handleStarredChange = (id, checked) => {
 
     const { GetAllNotes, filterOption } = this.state;
     let filteredNotes = GetAllNotes;
-    if (filterOption === 'checked') {
+    if (filterOption === 'unchecked') {
         filteredNotes = GetAllNotes.filter(GetAllNotes => GetAllNotes.starred);
-    } else if (filterOption === 'unchecked') {
+    } else if (filterOption === 'checked') {
         filteredNotes = GetAllNotes.filter(GetAllNotes => !GetAllNotes.starred);
     }
 
@@ -229,13 +229,13 @@ handleStarredChange = (id, checked) => {
                         <td>
                           {/* render to edit page  */}
                           <Link to={`/ViewNote/${GetAllNotes._id}`} class="btn btn-primary">
-                           <i class="fa-solid fa-eye"></i>
+                           <i className="fa-solid fa-eye"></i>
                           </Link>
                             &nbsp;
 
                           {/* render to edit page  */}
                           <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-warning">
-                           <i class="fa-solid fa-pen-to-square"></i>
+                           <i className="fa-solid fa-pen-to-square"></i>
                           </Link>
                             &nbsp;
 

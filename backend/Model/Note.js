@@ -21,7 +21,7 @@ const NoteSchema = new mongoose.Schema({
         
     },
 
-    completed: {
+    starred: {
         type: Boolean,
         default: false 
     }
