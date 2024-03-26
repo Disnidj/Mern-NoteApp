@@ -175,7 +175,7 @@ handleStarredChange = (id, checked) => {
                   </button>
                   </Link>
 
-                  <t/>  <t/>
+                  <span></span>
 
                 
                   
@@ -228,13 +228,13 @@ handleStarredChange = (id, checked) => {
                          <th style={{width:'20px'}} > </th>
                         <td>
                           {/* render to edit page  */}
-                          <Link to={`/ViewNote/${GetAllNotes._id}`} class="btn btn-primary">
+                          <Link to={`/ViewNote/${GetAllNotes._id}`} className="btn btn-primary">
                            <i className="fa-solid fa-eye"></i>
                           </Link>
                             &nbsp;
 
                           {/* render to edit page  */}
-                          <Link to={`/UpdateNote/${GetAllNotes._id}`} class="btn btn-warning">
+                          <Link to={`/UpdateNote/${GetAllNotes._id}`} className="btn btn-warning">
                            <i className="fa-solid fa-pen-to-square"></i>
                           </Link>
                             &nbsp;

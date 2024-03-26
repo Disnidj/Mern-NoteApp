@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { EditorState, convertToRaw } from 'draft-js';
@@ -12,6 +12,13 @@ const AddNote = () => {
   const [Topic, setTopic] = useState("");
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
+  useEffect(() => {
+    return () => {
+      // Cleanup function to handle component unmount
+      
+    };
+  }, []);
+ 
   const handle_Date_Change = (e) => {
     setDate(e.target.value)
   }
@@ -71,7 +78,7 @@ const AddNote = () => {
                   className='form-control'
                   style={{ marginBottom: '20px' }}
                   onChange={(e) => handle_Topic_Change(e)}
-                  required='true' />
+                  required />
               </div>
               <div className='form-group' id='textarea'>
                 <Editor
@@ -87,6 +94,7 @@ const AddNote = () => {
                   onEditorStateChange={onEditorStateChange}
                   toolbarClassName="toolbarClassName"
                   editorStyle={{ minHeight: '160px', maxHeight:'160px', backgroundColor:'white', overflowY: 'auto' }}
+                  required
                   
                 />
               </div>
@@ -99,7 +107,7 @@ const AddNote = () => {
                   className='form-control'
                   style={{ marginBottom: '20px' }}
                   onChange={(e) => handle_Date_Change(e)}
-                  required='true' />
+                  required />
               </div>
               <br />
               <Link to="/">

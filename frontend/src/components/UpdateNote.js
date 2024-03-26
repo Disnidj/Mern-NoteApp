@@ -33,6 +33,10 @@ function UpdateNote() {
     }
   };
 
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
+
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
   };
@@ -77,7 +81,7 @@ function UpdateNote() {
                 name="Topic"
                 onChange={(e) => handle_Topic_Change(e)}
                 value={Topic}
-                required='true'
+                required
               />
             </div>
             <br />
@@ -95,17 +99,19 @@ function UpdateNote() {
                 onEditorStateChange={onEditorStateChange}
                 toolbarClassName="toolbarClassName"
                 editorStyle={{ minHeight: '200px', maxHeight:'160px', backgroundColor:'white', overflowY: 'auto' }}
+                required
                 
               />
             </div>
             <br />
             <div className="form-group">
-              <input
+            <input
                 type="datetime-local"
                 className="form-control"
                 name="DateTime"
+                onChange={(e) => handleDateChange(e)} 
                 value={Date}
-                readOnly
+                required
               />
             </div>
             <br />
