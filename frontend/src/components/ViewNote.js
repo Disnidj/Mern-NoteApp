@@ -35,26 +35,36 @@ function ViewNote() {
 
   return (
     <div>
+      
       <center>
         <div className='content3'>
-          <center>
-            <h2 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '40px' }}>Note View</h2>
-          </center>
-          <br /><br />
-          <div className="note-details" style={{ color: 'white' }}>
-            <p style={{ marginLeft: '400px' }}><strong>Date:</strong> {Date}</p>
-            <h2><strong>{Topic}</strong> </h2>
-            {/* Render HTML content */}
-            <div dangerouslySetInnerHTML={draftToHtmlContent()} style={{maxHeight:'160px', overflowY: 'auto' }}/>
+          
+          
+          <div className="note-details">
+
+            <br/>
+            <h5 style={{ textAlign:'right' }}><strong>Date:</strong> {Date}</h5>
+
+            
+            <h1 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '-10px' }}><strong>{Topic}</strong> </h1> <br/>
+            
+            <div dangerouslySetInnerHTML={draftToHtmlContent()} style={{ overflowY: 'auto',backgroundColor: 'rgb(247, 246, 246)', borderRadius:'10px', minHeight: '360px', maxHeight:'360px'}}/>
+            
+
           </div>
-          <Link to="/">
-            <button type='button' className="btn btn-info" style={{ bottom: '70px', width: "110px", position: 'fixed' }}>
-              <i className="fa-solid fa-chevron-left"></i>&nbsp; HOME
-            </button>
-          </Link>
-          <br /><br /><br />
+          
+            
+          <center>
+            <br/>
+            <Link to="/">
+              <button type='button' className="btn btn-info" style={{ width: "160px" }}>
+                <i className="fa-solid fa-chevron-left"></i>&nbsp; HOME
+              </button>
+            </Link>
+          </center>
         </div>
-      </center>
+        </center>
+      
     </div>
   )
 }

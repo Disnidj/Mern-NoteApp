@@ -141,7 +141,7 @@ handleStarredChange = (id, checked) => {
 
 
                   <div >
-                    <h1 className='Header1'>My Notes List</h1> 
+                    <h1 className='Header1' style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '40px' }}>My Notes List</h1> 
                   </div>
                   <br/>
 
@@ -188,13 +188,13 @@ handleStarredChange = (id, checked) => {
               <table className="center-table"  >
                   <thead >
                     <tr  >
-                        <th style={{width:'40px', textAlign:'center'}} >No</th>
+                        <th style={{width:'40px', textAlign:'center', color:'black'}} >No</th>
                         <th style={{width:'20px'}} > </th>
-                        <th style={{width:'40px',textAlign:'center'}} >Starred</th> 
+                        <th style={{width:'40px',textAlign:'center', color:'black'}} >Starred</th> 
                         <th style={{width:'20px'}} > </th>
-                        <th style={{width:'250px', textAlign:'center'}}>Todo</th>
+                        <th style={{width:'250px', textAlign:'center', color:'black'}}>Todo</th>
                         <th style={{width:'20px'}} > </th>  
-                        <th style={{width:'150px', textAlign:'center'}}>Deadline</th>   
+                        <th style={{width:'150px', textAlign:'center', color:'black'}}>Date</th>   
                           
                     </tr>
                   </thead>
@@ -203,7 +203,7 @@ handleStarredChange = (id, checked) => {
 
                     {filteredNotes.map((GetAllNotes,index)=>(
                     <tr key ={index} >
-                        <th scope='row' style={{textAlign:'center'}}> {index+1}</th>
+                        <th scope='row' style={{textAlign:'center', color:'black'}}> {index+1}</th>
                         
                         <th style={{width:'20px'}} > </th>
 
@@ -245,12 +245,11 @@ handleStarredChange = (id, checked) => {
                           </button>
                         </td>
                     </tr>
-
-                    
+                  
                     
                         ))} 
 
-                                             
+                   
                   </tbody>
                   
               </table>

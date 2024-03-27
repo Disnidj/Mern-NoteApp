@@ -70,11 +70,13 @@ function UpdateNote() {
       <center>
         <div className='content3'>
           <center>
-            <h2 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '40px' }}>Note Update</h2>
+            <br/>
+            <h2 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '-5px' }}>Update Your Note</h2>
           </center>
           <br /><br />
           <form className='Add_form'>
-            <div className="form-group">
+          <div className='row justify-content-center'>
+            <div className="form-group col-md-6">
               <input
                 type="text"
                 className="form-control"
@@ -84,6 +86,19 @@ function UpdateNote() {
                 required
               />
             </div>
+
+            <div className="form-group col-md-6">
+            <input
+                type="datetime-local"
+                className="form-control"
+                name="DateTime"
+                onChange={(e) => handleDateChange(e)} 
+                value={Date}
+                required
+              />
+            </div>
+            </div>
+
             <br />
             <div className="form-group" >
               <Editor
@@ -98,22 +113,12 @@ function UpdateNote() {
                 editorClassName="editorClassName"
                 onEditorStateChange={onEditorStateChange}
                 toolbarClassName="toolbarClassName"
-                editorStyle={{ minHeight: '200px', maxHeight:'160px', backgroundColor:'white', overflowY: 'auto' }}
+                editorStyle={{ minHeight: '260px', maxHeight:'260px', backgroundColor:'white', overflowY: 'auto', borderRadius:'10px' }}
                 required
                 
               />
             </div>
-            <br />
-            <div className="form-group">
-            <input
-                type="datetime-local"
-                className="form-control"
-                name="DateTime"
-                onChange={(e) => handleDateChange(e)} 
-                value={Date}
-                required
-              />
-            </div>
+           
             <br />
           </form>
           <Link to="/">
@@ -127,7 +132,7 @@ function UpdateNote() {
           <button className="btn btn-warning" style={{ width: "110px", marginLeft: "10px" }} onClick={refreshPage}>
             <i className="fa-solid fa-arrow-rotate-right"></i>&nbsp;Refresh
           </button>
-          <br /><br /><br />
+          
         </div>
       </center>
     </div>

@@ -66,20 +66,35 @@ const AddNote = () => {
     <div>
       <center>
         <div className='content2'>
-          <center><h2 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '40px' }}>Create Your Note! </h2></center>
-          <br /><br />
+          <br/>
+          <center><h1 style={{ color: "white", textShadow: '1px 2px 5px black' }}>Create Your Note! </h1></center>
+          <br />
           <form onSubmit={(e) => handleSubmit(e)} className='Add_form'>
             <div>
-              <div className='form-group'>
-                <input
-                  type='text'
-                  value={Topic}
-                  placeholder="Type Your Note Topic Here"
-                  className='form-control'
-                  style={{ marginBottom: '20px' }}
-                  onChange={(e) => handle_Topic_Change(e)}
-                  required />
+            <div className='row justify-content-center'>
+                <div className='form-group col-md-6'>
+                  <input
+                    type='text'
+                    value={Topic}
+                    placeholder="Type Your Note Topic Here"
+                    className='form-control'
+                    style={{ marginBottom: '20px' }}
+                    onChange={(e) => handle_Topic_Change(e)}
+                    required />
+                </div>
+                <div className='form-group col-md-6'>
+                  <input
+                    type='datetime-local'
+                    value={Date}
+                    name="DateTime"
+                    placeholder='Date'
+                    className='form-control'
+                    style={{ marginBottom: '20px' }}
+                    onChange={(e) => handle_Date_Change(e)}
+                    required />
+                </div>
               </div>
+
               <div className='form-group' id='textarea'>
                 <Editor
                   editorState={editorState}
@@ -93,23 +108,13 @@ const AddNote = () => {
                   editorClassName="editorClassName"
                   onEditorStateChange={onEditorStateChange}
                   toolbarClassName="toolbarClassName"
-                  editorStyle={{ minHeight: '160px', maxHeight:'160px', backgroundColor:'white', overflowY: 'auto' }}
+                  editorStyle={{ minHeight: '260px', maxHeight:'260px', backgroundColor:'white', overflowY: 'auto' }}
                   required
                   
                 />
               </div>
-              <div className='form-group'>
-                <input
-                  type='datetime-local'
-                  value={Date}
-                  name="DateTime"
-                  placeholder='Date'
-                  className='form-control'
-                  style={{ marginBottom: '20px' }}
-                  onChange={(e) => handle_Date_Change(e)}
-                  required />
-              </div>
-              <br />
+              
+              <br/>
               <Link to="/">
                 <button type='button' className="btn btn-info" style={{ marginRight: " 20px" }}>
                   <i className="fa-solid fa-chevron-left"></i>&nbsp; HOME

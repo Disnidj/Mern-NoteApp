@@ -1,12 +1,10 @@
 body {
-    background-color: black;
+    background-color: rgb(247, 246, 246);
   }
 
 
   /* for ViewAllNotes file */
-.Header1{
-    color: rgb(249, 249, 250);
-}
+
 
 .center-table{
     margin: 0 auto;
@@ -18,6 +16,7 @@ body {
 .center-table td{
     text-align: center;
     background-color: rgb(33, 2, 43);
+    width: 200px;
     
     
 }
@@ -28,10 +27,9 @@ body {
 
 .content1{
     margin-top: 30px;
-    min-width: 1300px;
     max-width: 1300px;
     height: 550px;
-    background-color: rgba(137, 43, 226, 0.37);
+    background-image: url('./images/image1.jpg');
     overflow-y: auto;
     border-radius: 40px;
     padding: 0 20px;
@@ -54,11 +52,11 @@ body {
 
 .content2{
 
-    margin-top: 50px;
-    width: 750px;
-    max-width: 1000px;
-    height: 500px;
-    background-color: rgba(43, 137, 226, 0.37);
+    margin-top: 30px;
+    max-width: 1300px;
+    height: 550px;
+    /* background-color: rgba(43, 137, 226, 0.37); */
+    background-image: url('./images/image1.jpg');
     border-radius: 40px;
     padding: 0 20px;
        
@@ -74,7 +72,9 @@ body {
 
   .Add_form{
 
-    width: 350px;
+    
+    max-width: 1100px;
+    
   
   }
   
@@ -85,13 +85,14 @@ body {
 
 .content3{
 
-    margin-top: 50px;
-    width: 750px;
-    max-width: 1000px;
-    height: 500px;
-    background-color: rgba(226, 43, 186, 0.37);
-    border-radius: 40px;
-    padding: 0 20px;
+  margin-top: 30px;
+  max-width: 1300px;
+  height: 550px;
+  /* background-color: rgba(43, 137, 226, 0.37); */
+  background-image: url('./images/image1.jpg');
+  border-radius: 40px;
+  padding: 0 20px;
+  align-items: center;
        
 }
 
