@@ -4,7 +4,7 @@ This is a simple Note application built using the MERN stack (MongoDB, Express.j
 ## Features
 * Display a list of notes with the ability to add, edit, view and delete tasks.
 * Search option to search by the note title .
-* Implement notes filtering options (e.g., All, Pending, Completed).
+* Implement notes filtering options (e.g., All, Stared, Common).
 * Provide a star feature to mark tasks as important.
 
 ## Prerequisites
@@ -48,7 +48,7 @@ Open the web browser by ctrl+link(display on the frontend terminal)
 * POST ``` /Note/Save``` : Create a new note.
 * PUT ``` /UpdateNote/:id``` : Update a note.
 * DELETE ``` /DeleteNote/:id``` : Delete a note.
-* UPDATE2  ``` /UpdateNoteStar/:id``` : Stares update
+* STARED  ``` /UpdateNoteStar/:id``` : Stares update
 
 
 ## Technologies Used
