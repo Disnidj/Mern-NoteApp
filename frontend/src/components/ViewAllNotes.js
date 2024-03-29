@@ -66,16 +66,17 @@ handleFilterChange = (e) => {
 
 //search data according to the topic
 
-filterData(GetAllNotes,searchKey){
-  const result =this.state.GetAllNotes.filter((NoteData) =>
-  (NoteData.Shift?.toLowerCase() || '').includes(searchKey) ||
-  (NoteData.Shift && NoteData.Shift.includes(searchKey))||
-  NoteData.Topic.toLowerCase().includes(searchKey) 
-  
-  )
+filterData(GetAllNotes, searchKey) {
+  const lowerSearchKey = searchKey.toLowerCase(); // Convert search key to lowercase
+  const upperSearchKey = searchKey.toUpperCase(); // Convert search key to uppercase
 
-this.setState({GetAllNotes:result})
+  const result = this.state.GetAllNotes.filter((NoteData) =>
+    (NoteData.Shift?.toLowerCase() || '').includes(lowerSearchKey) || // Include lowercase match
+    (NoteData.Shift && NoteData.Shift.includes(upperSearchKey)) || // Include uppercase match
+    NoteData.Topic.toLowerCase().includes(lowerSearchKey) // Include lowercase match
+  );
 
+  this.setState({ GetAllNotes: result });
 }
 
 handleSearchArea = (e) => {
