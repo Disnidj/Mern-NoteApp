@@ -59,4 +59,4 @@ Open the web browser by ctrl+link(display on the frontend terminal)
 
 ## Demo
 
-   ##```mern-noteapp.netlify.app ```
+   ```mern-noteapp.netlify.app ```
