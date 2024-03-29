@@ -1,16 +1,17 @@
+//import dependancies
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+//import stylings
 import './NoteStyle.css';
 
 function UpdateNote() {
   const [Date, setDate] = useState('');
   const [Topic, setTopic] = useState('');
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
   const id = useParams();
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function UpdateNote() {
     e.preventDefault();
     setTopic(e.target.value);
     if (e.target.value.length > 20) {
-      alert("Limit Exceeded!");
+      alert("Limit Exceeded! characters must be 20 or less");
     }
   };
 
@@ -121,14 +122,17 @@ function UpdateNote() {
            
             <br />
           </form>
+
           <Link to="/">
             <button type='button' className="btn btn-info" style={{ marginRight: " 20px", width: "110px" }}>
               <i className="fa-solid fa-chevron-left"></i>&nbsp; HOME
             </button>
           </Link>
+
           <button className="btn btn-secondary" type="submit" style={{ width: "110px", marginRight: "10px", backgroundColor: "#484846" }} onClick={(e) => ChangeOnClick(e)}>
             <i className="fa-solid fa-pen-to-square"></i>&nbsp; UPDATE
           </button>
+          
           <button className="btn btn-warning" style={{ width: "110px", marginLeft: "10px" }} onClick={refreshPage}>
             <i className="fa-solid fa-arrow-rotate-right"></i>&nbsp;Refresh
           </button>

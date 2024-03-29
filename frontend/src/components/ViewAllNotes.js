@@ -1,8 +1,6 @@
-//import react
+//import dependancies
 import React, { Component } from 'react'
-//import axios
 import axios from 'axios'
-
 import { Link } from 'react-router-dom';
 
 //import styles
@@ -57,7 +55,6 @@ constructor (props) {
     alert("Deleted succesfully");
   })
   
-
   .catch(error => {
     console.error('Error deleting Note:', error);
 });
@@ -132,13 +129,10 @@ handleStarredChange = (id, checked) => {
     return (
 
             <div>
-                
-                
 
                 <center>
 
                 <div className='content1' >
-
 
                   <div >
                     <h1 className='Header1' style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '40px' }}>My Notes List</h1> 
@@ -164,7 +158,7 @@ handleStarredChange = (id, checked) => {
                         <option value="checked">Starred</option>
                         <option value="unchecked">Common</option>
                     </select>
-              </div>
+                  </div>
 
                   </div>
 
@@ -177,12 +171,8 @@ handleStarredChange = (id, checked) => {
 
                   <span></span>
 
-                
-                  
-
-                 <br/><br/>
-                 
-                      
+                  <br/><br/>
+                       
                       
               {/* display Note list  */}
               <table className="center-table"  >

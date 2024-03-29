@@ -43,6 +43,23 @@ body {
     }
   }
 
+  .star {
+    visibility:hidden;
+    font-size:30px;
+    color: rgb(255, 196, 0);
+    cursor:pointer;
+    margin-bottom: 35px;
+    margin-left: -10px
+    
+  }
+  .star:before {
+   content: "\2605";
+   visibility:visible;
+  
+  }
+  .star:checked:before {
+   content: "\2606";
+  }
 
 /* end for viewallnotes */
 
@@ -64,7 +81,7 @@ body {
 
 @media only screen and (max-width: 768px) {
     .content2 {
-      width: 100%; /* Make the content take full width on smaller screens */
+      width: 100%; 
       height: auto; 
     }
   }
@@ -98,31 +115,11 @@ body {
 
 @media only screen and (max-width: 768px) {
     .content3 {
-      width: 100%; /* Make the content take full width on smaller screens */
+      width: 100%; 
       height: auto; 
     }
   }
 
-
-/* NoteStyle.css */
-
-.star {
-  visibility:hidden;
-  font-size:30px;
-  color: rgb(255, 196, 0);
-  cursor:pointer;
-  margin-bottom: 35px;
-  margin-left: -10px
-  
-}
-.star:before {
- content: "\2605";
- visibility:visible;
-
-}
-.star:checked:before {
- content: "\2606";
-}
 
 /* end  */
   

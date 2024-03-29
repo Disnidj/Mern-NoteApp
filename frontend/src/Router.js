@@ -21,6 +21,7 @@ export default function NoteRouter() {
             path="/AddNote"
             element={<AddNote />}
           />
+          
           <Route
             path="/UpdateNote/:id"
             element={<UpdateNote />}

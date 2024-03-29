@@ -19,7 +19,7 @@ router.post("/Note/Save", async (req, res) => {
     } catch (err) {
         console.error('Error:', err);
         return res.status(400).json({
-            error: err.message // err.message to capture the error message
+            error: err.message // to capture the error message
         });
     }
 });
@@ -28,13 +28,13 @@ router.post("/Note/Save", async (req, res) => {
 
 router.get("/GetAllNotes", async (req, res) => {
     try {
-        const allNotes = await Note.find().exec();
+        const allNotes = await Note.find().exec();// Await to wait for the execute operation to complete
         return res.status(200).json({
             success: true,
             existingData: allNotes
         });
     } catch (err) {
-        return res.status(400).json({
+        return res.status(400).json({ // to capture the error message
             error: err
         });
     }
@@ -44,7 +44,7 @@ router.get("/GetAllNotes", async (req, res) => {
 /// Get one Note
 router.get("/GetOneNote/:id", async (req, res) => {
     try {
-        const note = await Note.findById(req.params.id);
+        const note = await Note.findById(req.params.id); // Await to wait for peration to complete
         if (!note) {
             return res.status(404).json({ error: "The Note not found" });
         }
@@ -53,7 +53,7 @@ router.get("/GetOneNote/:id", async (req, res) => {
             oneNote: note
         });
     } catch (err) {
-        return res.status(400).json({
+        return res.status(400).json({ // to capture the error message
             error: err
         });
     }
@@ -64,7 +64,7 @@ router.get("/GetOneNote/:id", async (req, res) => {
 //Update a Note
 router.put("/UpdateNote/:id", async (req, res) => {
     try {
-        const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, { new: true }); // Await to wait for the operation to complete
         if (!updatedNote) {
             return res.status(404).json({ error: "The Note not found" });
         }
@@ -73,7 +73,7 @@ router.put("/UpdateNote/:id", async (req, res) => {
             updatedNote
         });
     } catch (err) {
-        return res.status(400).json({
+        return res.status(400).json({// to capture the error message
             error: err
         });
     }
@@ -82,7 +82,7 @@ router.put("/UpdateNote/:id", async (req, res) => {
 // Delete a Note
 router.delete("/DeleteNote/:id", async (req, res) => {
     try {
-        const deletedNote = await Note.findByIdAndDelete(req.params.id);
+        const deletedNote = await Note.findByIdAndDelete(req.params.id); // Await to wait for the  operation to complete
         if (!deletedNote) {
             return res.status(404).json({ error: "Note not found" });
         }
@@ -91,7 +91,7 @@ router.delete("/DeleteNote/:id", async (req, res) => {
             deletedNote
         });
     } catch (err) {
-        return res.status(400).json({ error: err.message });
+        return res.status(400).json({ error: err.message }); // to capture the error message
     }
 });
 
@@ -101,11 +101,11 @@ router.put("/UpdateNoteStar/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const { starred } = req.body; 
-        const updatedNote = await Note.findByIdAndUpdate(id, { starred }, { new: true }); // Change from completed to starred
+        const updatedNote = await Note.findByIdAndUpdate(id, { starred }, { new: true }); 
         res.status(200).json({ success: true, note: updatedNote });
     } catch (error) {
         console.error('Error updating note star:', error);
-        res.status(500).json({ success: false, error: error.message });
+        res.status(500).json({ success: false, error: error.message }); // to capture the error message
     }
 });
   

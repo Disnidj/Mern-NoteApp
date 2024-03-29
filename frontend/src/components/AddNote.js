@@ -1,9 +1,12 @@
+//import dependancies
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
+//import stylings
 import './NoteStyle.css';
 
 const AddNote = () => {
@@ -19,6 +22,9 @@ const AddNote = () => {
     };
   }, []);
  
+
+  //handle the input data changes
+
   const handle_Date_Change = (e) => {
     setDate(e.target.value)
   }
@@ -32,11 +38,15 @@ const AddNote = () => {
     setEditorState(editorState);
   };
 
+
+  //handle form submissions
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (Date === '' || Topic === '' || !editorState.getCurrentContent().hasText()) { // Updated condition
       alert("Fill The Required Fields!!");
+    }  else if (Topic.length > 20) {
+      alert('Topic should not exceed 20 characters.');
     } else {
       const description = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
 
@@ -62,17 +72,22 @@ const AddNote = () => {
     setEditorState(EditorState.createEmpty());
   };
 
+
+
   return (
     <div>
       <center>
         <div className='content2'>
+
           <br/>
           <center><h1 style={{ color: "white", textShadow: '1px 2px 5px black' }}>Create Your Note! </h1></center>
           <br />
+
           <form onSubmit={(e) => handleSubmit(e)} className='Add_form'>
             <div>
             <div className='row justify-content-center'>
                 <div className='form-group col-md-6'>
+                  
                   <input
                     type='text'
                     value={Topic}
@@ -82,6 +97,7 @@ const AddNote = () => {
                     onChange={(e) => handle_Topic_Change(e)}
                     required />
                 </div>
+
                 <div className='form-group col-md-6'>
                   <input
                     type='datetime-local'
@@ -93,6 +109,7 @@ const AddNote = () => {
                     onChange={(e) => handle_Date_Change(e)}
                     required />
                 </div>
+
               </div>
 
               <div className='form-group' id='textarea'>
@@ -115,17 +132,21 @@ const AddNote = () => {
               </div>
               
               <br/>
+
               <Link to="/">
                 <button type='button' className="btn btn-info" style={{ marginRight: " 20px" }}>
                   <i className="fa-solid fa-chevron-left"></i>&nbsp; HOME
                 </button>
               </Link>
+
               <button type='submit' className='btn btn-success' style={{ marginRight: " 10px" }} >
                 <i className="fa-solid fa-circle-check"></i>&nbsp; SUBMIT
               </button>
+              
               <button className="btn btn-warning" onClick={resetInputField} style={{ marginLeft: " 10px" }} >
                 <i className="fa-solid fa-broom"></i>&nbsp; CLEAR
               </button>
+
             </div>
           </form>
         </div>

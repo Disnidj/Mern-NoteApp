@@ -1,3 +1,5 @@
+// Import dependencies
+
 //import express to invoke with the app
 const express = require("express");
 
@@ -10,8 +12,15 @@ const bodyParser = require("body-parser");
 //import mongoose
 const mongoose = require("mongoose");
 
+// import dotenv
+const dotenv = require("dotenv");
 
-//invoke app
+
+//load environmental variables
+dotenv.config();
+
+
+// Initialize Express app
 const app = express();
 
 
@@ -22,12 +31,12 @@ app.use(
   })
 );
 
-
-
 // Configure body-parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(bodyParser.json()); // Parse JSON bodies
 
+
+// Log incoming request bodies
 app.use((req, res, next) => {
   console.log('Received request body:', req.body);
   next();
@@ -39,11 +48,6 @@ const router = require('./Routes/Note');
 
 //route middleware
 app.use(router);
-
-
-// Configure dotenv
-const dotenv = require("dotenv");
-dotenv.config();
 
 
 

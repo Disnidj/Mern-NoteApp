@@ -1,3 +1,4 @@
+//import dependancies
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
@@ -5,6 +6,8 @@ import { EditorState, convertFromRaw } from 'draft-js';
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html'; // Import draftjs-to-html
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
+//import stylings
 import './NoteStyle.css';
 
 function ViewNote() {
@@ -14,6 +17,8 @@ function ViewNote() {
 
   const id = useParams();
 
+
+  //get individual note details to the page
   useEffect(() => {
     axios.get(`http://localhost:8000/GetOneNote/${id?.id}`)
       .then(res => {
@@ -48,12 +53,11 @@ function ViewNote() {
             
             <h1 style={{ color: "white", textShadow: '1px 2px 5px black', marginTop: '-10px' }}><strong>{Topic}</strong> </h1> <br/>
             
-            <div dangerouslySetInnerHTML={draftToHtmlContent()} style={{ overflowY: 'auto',backgroundColor: 'rgb(247, 246, 246)', borderRadius:'10px', minHeight: '360px', maxHeight:'360px'}}/>
-            
-
-          </div>
+            <div dangerouslySetInnerHTML={draftToHtmlContent()} style={{ overflowY: 'auto',backgroundColor: 'rgb(247, 246, 246)',
+             borderRadius:'10px', minHeight: '360px', maxHeight:'360px'}}/>
           
-            
+          </div>
+        
           <center>
             <br/>
             <Link to="/">
